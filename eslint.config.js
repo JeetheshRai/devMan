@@ -40,4 +40,20 @@ export default [
       parser: tseslint.parser,
     },
   },
+
+  // Data-layer exports form a documented, typed boundary for pages and tests.
+  {
+    files: ["db/**/*.ts", "src/lib/**/*.ts"],
+    rules: {
+      "@typescript-eslint/explicit-module-boundary-types": [
+        "error",
+        {
+          allowArgumentsExplicitlyTypedAsAny: false,
+          allowDirectConstAssertionInArrowFunctions: true,
+          allowHigherOrderFunctions: true,
+          allowTypedFunctionExpressions: true,
+        },
+      ],
+    },
+  },
 ];
